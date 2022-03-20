@@ -2,11 +2,12 @@ import { animate, blockBody, unBlockBody } from './helpers';
 
 const modal = () => {
   const requestModal = document.querySelector('.header-modal');
+  const serviceModal = document.querySelector('.services-modal');
   const overlay = document.querySelector('.overlay');
 
-  const openModal = () => {
-    requestModal.style.top = '-30%';
-    requestModal.style.display = 'block';
+  const openModal = (elem) => {
+    elem.style.top = '-30%';
+    elem.style.display = 'block';
     overlay.style.display = 'block';
     blockBody();
 
@@ -16,13 +17,13 @@ const modal = () => {
         return timeFraction;
       },
       draw(progress) {
-        requestModal.style.top = (progress * 50) + '%';
+        elem.style.top = (progress * 50) + '%';
       }
     });
   };
 
-  const closeModal = () => {
-    requestModal.style.display = 'none';
+  const closeModal = (elem) => {
+    elem.style.display = 'none';
     overlay.style.display = 'none';
     unBlockBody();
   };
@@ -30,9 +31,17 @@ const modal = () => {
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('request-call') || e.target.closest('.request-call')) {
       e.preventDefault();
-      openModal();
-    } else if (e.target.classList.contains('header-modal__close') || !e.target.closest('.header-modal')) {
-      closeModal();
+      openModal(requestModal);
+    } else if (e.target.classList.contains('call-measurer')) {
+      e.preventDefault();
+      openModal(serviceModal);
+    } else if (e.target.classList.contains('header-modal__close')) {
+      closeModal(requestModal);
+    } else if (e.target.classList.contains('services-modal__close')) {
+      closeModal(serviceModal);
+    } else if (e.target.classList.contains('overlay')) {
+      closeModal(requestModal);
+      closeModal(serviceModal);
     }
   });
 };
