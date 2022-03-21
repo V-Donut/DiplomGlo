@@ -499,9 +499,6 @@ input.error {
 #benefits {
   background-color: #f5f6f6;
 }
-.benefits-inner {
-  text-align: center;
-}
 .benefit-image {
   margin-bottom: 22px;
 }
@@ -1599,6 +1596,7 @@ input.error {
 .benefits__item {
   width: 100%;
   max-width: 185px;
+  text-align: center;
 }
 
 .benefits-arrows {
