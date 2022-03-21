@@ -1,16 +1,21 @@
 const smoothScroll = () => {
   const scrollBtn = document.querySelector('.smooth-scroll');
   const firstSection = document.querySelector('.section');
-  const sectionCoordinates = firstSection.getBoundingClientRect();
 
-  scrollBtn.style.display = 'none';
-
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > sectionCoordinates.top) {
+  const visibilityChange = () => {
+    if (window.pageYOffset > firstSection.offsetTop) {
       scrollBtn.style.display = 'block';
     } else {
       scrollBtn.style.display = 'none';
     }
+  };
+
+  window.addEventListener('load', () => {
+    visibilityChange();
+  });
+
+  window.addEventListener('scroll', () => {
+    visibilityChange();
   });
 
   scrollBtn.addEventListener('click', () => {
