@@ -7,7 +7,7 @@ import smoothScroll from './modules/smoothScroll';
 
 modal();
 calc();
-timer();
+timer('16 april 2022');
 slider();
 sendForm();
 smoothScroll();
