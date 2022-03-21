@@ -1,11 +1,6 @@
-import Swiper, { Navigation, Autoplay } from 'swiper';
-
 const slider = () => {
   const servicesSlider = new Swiper('.our-services', {
-    slidesPerView: 2,
-    spaceBetween: 40,
     loop: true,
-    modules: [Navigation, Autoplay],
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
@@ -27,11 +22,7 @@ const slider = () => {
   });
 
   const benefitsSlider = new Swiper('.our-benefits', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    slidesPerColumnFill: 'row',
     loop: true,
-    modules: [Navigation],
     navigation: {
       nextEl: '.benefits__arrow--right',
       prevEl: '.benefits__arrow--left',
@@ -43,7 +34,7 @@ const slider = () => {
       },
       576: {
         slidesPerView: 3,
-        spaceBetween: 212,
+        spaceBetween: 40,
       }
     }
   });
