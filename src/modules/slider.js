@@ -16,6 +16,10 @@ const slider = () => {
       },
       576: {
         slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1200: {
+        slidesPerView: 2,
         spaceBetween: 40,
       }
     }
