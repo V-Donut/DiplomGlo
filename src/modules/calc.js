@@ -2,6 +2,10 @@ import { animate } from './helpers';
 
 const calc = () => {
   const calc = document.getElementById('calc');
+  if (!calc) {
+    return;
+  }
+
   const calcType = document.getElementById('calc-type');
   const calcMaterial = document.getElementById('calc-type-material');
   const calcInput = document.getElementById('calc-input');
