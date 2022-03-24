@@ -3,6 +3,7 @@ import { animate, blockBody, unBlockBody } from './helpers';
 const modal = () => {
   const requestModal = document.querySelector('.header-modal');
   const serviceModal = document.querySelector('.services-modal');
+  const imageModal = document.querySelector('.image-modal');
   const overlay = document.querySelector('.overlay');
 
   const openModal = (elem) => {
@@ -35,13 +36,26 @@ const modal = () => {
     } else if (e.target.classList.contains('call-measurer')) {
       e.preventDefault();
       openModal(serviceModal);
+    } else if (e.target.classList.contains('document-overlay')) {
+      e.preventDefault();
+      const image = e.target.parentNode.getAttribute('href');
+      const modalBody = imageModal.querySelector('.box-modal_body');
+      const newElem = document.createElement('img');
+      newElem.style.width = '100%';
+      newElem.setAttribute('src', image);
+      modalBody.innerHTML = '';
+      modalBody.append(newElem);
+      openModal(imageModal);
     } else if (e.target.classList.contains('header-modal__close')) {
       closeModal(requestModal);
+    } else if (e.target.classList.contains('image-modal__close')) {
+      closeModal(imageModal);
     } else if (e.target.classList.contains('services-modal__close')) {
       closeModal(serviceModal);
     } else if (e.target.classList.contains('overlay')) {
       closeModal(requestModal);
       closeModal(serviceModal);
+      closeModal(imageModal);
     }
   });
 };

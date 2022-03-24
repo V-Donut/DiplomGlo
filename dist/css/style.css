@@ -1554,7 +1554,8 @@ input.error {
   z-index: 9999;
 }
 
-.header-modal__close {
+.header-modal__close,
+.image-modal__close {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -1562,8 +1563,20 @@ input.error {
   cursor: pointer;
 }
 
-.header-modal__close:hover {
+.header-modal__close:hover,
+.image-modal__close:hover {
   color: rgba(0, 0, 0, 0.35);
+}
+
+.image-modal .fancybox-inner {
+  width: 580px;
+  overflow: hidden;
+}
+
+@media (max-width: 576px) {
+  .image-modal .fancybox-inner {
+    width: 350px;
+  }
 }
 
 .services-modal__close {
@@ -1576,6 +1589,10 @@ input.error {
 
 .services-modal__close:hover {
   color: rgba(0, 0, 0, 0.35);
+}
+
+.image-modal {
+  display: none;
 }
 
 .overlay {
