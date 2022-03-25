@@ -79,7 +79,9 @@ const sendForm = ({ formId, someElem = [] }) => {
           statusBlock.textContent = successText;
 
           formElements.forEach(input => {
-            input.value = '';
+            if (input.getAttribute('type') !== 'hidden') {
+              input.value = '';
+            }
           });
 
           setTimeout(() => {
